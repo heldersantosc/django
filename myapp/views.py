@@ -20,5 +20,12 @@ def home_param(request, post_id):
 
 
 def post_list(request):
-    name = "Helder Santos"
-    return render(request, "post_list.html", {"name": name})
+    # name = "Helder Santos"
+    # return render(request, "post_list.html", {"name": name})
+    posts = Post.objects.all()
+    return render(request, "post_list.html", {"posts": posts})
+
+
+def post_show(request, post_id):
+    post = Post.objects.get(id=post_id)
+    return render(request, "post_show.html", {"post": post})

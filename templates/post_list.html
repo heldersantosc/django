@@ -1,2 +1,11 @@
+{% extends 'layout.html' %} {% block content %}
 <h1>Listagem de posts</h1>
-{{ name }}
+
+<ul>
+  {% for post in posts %}
+  <li>
+    <a href="{% url 'post_show' post.id %}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}
